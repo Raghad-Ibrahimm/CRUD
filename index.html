@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+  </head>
+  <body>
+
+<header>
+  <div class="container text-center py-3">
+    <h1 class="bg-dark-subtle p-2">Products Management System</h1>
+
+  </div>
+</header>
+<main>
+    <section>
+      <div class="container py-5">
+        <div class="form-floating mb-3">
+          <input 
+          oninput="validation(this)"
+            type="text"
+            class="form-control"
+            id="ProductName"
+            placeholder="Product Name"/>
+     
+            <span class="alert alert-danger d-none m-1" >Must start with capital letter legend between 3 to 15</span>
+
+          <label for="ProductName">Product Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input oninput="validation(this)"
+            type="number"
+            class="form-control"
+            id="ProductPrice"
+            placeholder="Product Price"
+          />
+        
+          <span class="alert alert-dange d-none m-1" >The price is within the range of 6000 to 60000...</span>
+
+          <label for="ProductPrice">Product Price</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input oninput="validation(this)"
+            list="Cate"
+            type="text"
+            class="form-control"
+            id="ProductCategory"
+            placeholder="Produc Gategory"
+          />
+    
+          <span class="alert alert-danger d-none m-1" >Plase choice => Gold or Silver or Diamonds </span>
+
+          <label for="ProductCategory">Product Category</label>
+          <datalist id="Cate">
+            <option value="Gold"></option>
+            <option value="Silver"></option>
+            <option value="Diamonds"></option>
+          </datalist>
+        </div>
+        <div class="form-floating mb-3">
+          <input oninput="validation(this)"
+          accept="image/*"
+            type="file"
+            class="form-control"
+            id="ProductImage"
+            placeholder="Produc Image"
+          />
+          <span class="alert alert-danger d-none m-1" >Must be svg,png,jpeg,jpg</span>
+
+          <label for="ProductImage">Produc Image</label>
+        </div>
+        <div class="form-floating mb-3">
+          <textarea
+          oninput="validation(this)"
+            class="form-control"
+            id="ProductDesc"
+            placeholder="Produc desc"
+          ></textarea>
+          <span class="text-danger-emphasis m-1" >It can contain characters from 0 to 250 or no description</span>
+
+          <label for="ProductDesc">Produc Desc</label>
+        </div>
+        <button type="submit" onclick="addProduct()" id="addBtn" class="btn btn-success">
+          Add Product
+        </button>
+        <button type="submit" onclick="update()" id="upDate" class="btn btn-primary d-none">
+          Update Product
+        </button>
+        
+
+      </div>
+      <div class="container d-flex">
+        <div class="col-6 mx-1">
+          <input type="search" oninput="search()" class="form-control my-4 " id="search" placeholder="Search By Title...." >
+
+        </div>
+        <div class="col-6 mx-1">
+             <input type="search" oninput="searchBycate()" class="form-control my-4 " id="searchCate" placeholder="Search By Category...." >
+      </div>
+    </div>
+    </section>
+<section>
+    <div class="container">
+      <div class="row gy-3" id="rowData"></div>
+
+      </div>
+    </section>
+  </main>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
